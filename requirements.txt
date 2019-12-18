@@ -1,0 +1,9 @@
+six
+ipython
+pandas
+networkx
+simplicial
+numpy
+jupyter
+matplotlib
+
