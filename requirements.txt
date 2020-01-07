@@ -6,4 +6,5 @@ simplicial
 numpy
 jupyter
 matplotlib
+seaborn
 

@@ -1,29 +1,19 @@
-# Makefile for "Topology and data analysis" project
+# Makefile for "Topology and data analysis"
 #
 # Copyright (C) 2019 Simon Dobson
+# 
+# Licensed under the Creative Commons Attribution-Share Alike 4.0 
+# International License (https://creativecommons.org/licenses/by-sa/4.0/).
 #
-# This file is part of tada, Notes for a nbook on toplogy and data analysis.
-#
-# tada is free software: you can redistribute it and/or modify
-# it under the terms of the GNU General Public License as published by
-# the Free Software Foundation, either version 3 of the License, or
-# (at your option) any later version.
-#
-# tada is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with tada. If not, see <http://www.gnu.org/licenses/gpl.html>.
 
 # ----- Sources -----
 
-# Notebooks
+# Notebooks in book order
+HEADER = index.ipynb
 NOTEBOOKS = \
-	index.pynb \
 	simplicial-topology.ipynb \
-	quotient-groups.ipynb
+	quotient-groups.ipynb \
+	delaunay.ipynb
 
 SOURCES_EXTRA = \
 	README.rst \
@@ -40,6 +30,8 @@ JUPYTER = jupyter
 PIP = pip
 VIRTUALENV = python3 -m venv
 ACTIVATE = . $(VENV)/bin/activate
+PERL = perl
+BIB2X = $(PERL) ./bib2x --nodoi --visiblekeys --flat --sort
 TR = tr
 CAT = cat
 SED = sed
@@ -52,7 +44,7 @@ PANDOC = pandoc
 # Root directory
 ROOT = $(shell pwd)
 
-# Requirements for running the book and for the 
+# Requirements for running the book
 VENV = venv3
 REQUIREMENTS = requirements.txt
 PY_REQUIREMENTS = $(shell $(CAT) $(REQUIREMENTS) | $(SED) 's/.*/"&"/g' | $(PASTE) -s -d, -)
